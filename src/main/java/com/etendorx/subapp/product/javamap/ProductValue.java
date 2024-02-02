@@ -5,13 +5,13 @@ import com.etendorx.entities.jparepo.OrganizationRepository;
 import com.etendorx.entities.jparepo.ProductCategoryRepository;
 import com.etendorx.entities.jparepo.UOMRepository;
 import com.etendorx.entities.mapper.lib.DTOWriteMapping;
-import com.etendorx.entities.mappings.PRODSUBAPPM_ProductDTOWrite;
+import com.etendorx.entities.mappings.PRODSUBAPPProductDTOWrite;
 import org.apache.commons.lang3.StringUtils;
 import org.openbravo.model.common.plm.Product;
 import org.springframework.stereotype.Component;
 
 @Component("PRODSUBAPPProductValueWrite")
-public class ProductValue implements DTOWriteMapping<Product, PRODSUBAPPM_ProductDTOWrite> {
+public class ProductValue implements DTOWriteMapping<Product, PRODSUBAPPProductDTOWrite> {
 
   private final OrganizationRepository organizationRepository;
   private final ProductCategoryRepository productCategoryRepository;
@@ -29,7 +29,7 @@ public class ProductValue implements DTOWriteMapping<Product, PRODSUBAPPM_Produc
   }
 
   @Override
-  public void map(Product entity, PRODSUBAPPM_ProductDTOWrite dto) {
+  public void map(Product entity, PRODSUBAPPProductDTOWrite dto) {
     if (StringUtils.isEmpty(entity.getSearchKey())) {
       entity.setSearchKey("TEST " + Math.random());
     }
